@@ -1,7 +1,8 @@
 import path from 'path'
 import fs from 'fs'
 import { glob } from 'glob'
-import { src, dest, watch, series } from 'gulp'
+import pkg from 'gulp';
+const { src, dest, watch, series } = pkg;
 import * as dartSass from 'sass'
 import gulpSass from 'gulp-sass'
 import concat from 'gulp-concat'
