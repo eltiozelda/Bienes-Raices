@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bienes Raíces</title>
-    <link rel="stylesheet" href="/bienesraices_inicio/build/css/app.css">
+    <link rel="stylesheet" href="/build/css/app.css">
 </head>
 <body>
     <header class="header <?php echo $inicio ? 'inicio' : '';?>">
         <div class="contenedor contenido-header">
             <div class="barra">
                 <a href="/bienesraices_inicio/index.php">
-                    <img src="build/img/logo.svg" alt="Logotipo de Bienes Raíces">
+                    <img src="/build/img/logo.svg" alt="Logotipo de Bienes Raíces">
                 </a>
                 
                 <div class="mobile-menu">
@@ -19,7 +19,7 @@
                 </div>
 
                 <div class="derecha">
-                    <img src="build/img/dark-mode.svg" alt="modo oscuro" class="dark-mode-boton">
+                    <img src="/build/img/dark-mode.svg" alt="modo oscuro" class="dark-mode-boton">
                     <nav class="navegacion">
                         <a href="nosotros.php">Nosotros</a>
                         <a href="anuncios.php">Anuncios</a>
