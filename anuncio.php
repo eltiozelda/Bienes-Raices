@@ -33,19 +33,6 @@
         <p>Nulla velit nostrud pariatur officia laborum occaecat culpa sint. Est ex eu tempor dolore minim ullamco commodo ad excepteur esse velit adipisicing sunt. Dolor in et pariatur in officia anim sunt ut esse incididunt cillum deserunt duis nisi. Aute ad aute nisi aliquip est duis. Laboris labore officia sit quis in deserunt sunt consequat veniam dolore. Occaecat labore veniam occaecat fugiat non aute et anim amet. Ex aliqua aliquip quis ea.</p>
     </main>
 
-    <footer class="footer seccion">
-        <div class="contenedor contenedor-footer">
-            <nav class="navegacion">
-                <a href="nosotros.html">Nosotros</a>
-                <a href="anuncios.html">Anuncios</a>
-                <a href="blog.html">Blog</a>
-                <a href="contacto.html">Contacto</a>
-            </nav>
-        </div>
-        
-        <p class="copyright">Todos los derechos reservados 2024 &copy;</p>
-    </footer>
-
-    <script src="build/js/bundle.min.js"></script>
-</body>
-</html>
+<?php
+    include './includes/templates/footer.php';
+?>
