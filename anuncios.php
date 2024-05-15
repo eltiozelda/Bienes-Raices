@@ -1,36 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bienes Raíces</title>
-    <link rel="stylesheet" href="build/css/app.css">
-</head>
-<body>
-    <header class="header">
-        <div class="contenedor contenido-header">
-            <div class="barra">
-                <a href="/">
-                    <img src="build/img/logo.svg" alt="Logotipo de Bienes Raíces">
-                </a>
-                
-                <div class="mobile-menu">
-                    <img src="src/img/barras.svg" alt="icono menú responsive">
-                </div>
-
-                <div class="derecha">
-                    <img src="build/img/dark-mode.svg" alt="modo oscuro" class="dark-mode-boton">
-                    <nav class="navegacion">
-                        <a href="nosotros.html">Nosotros</a>
-                        <a href="anuncios.html">Anuncios</a>
-                        <a href="blog.html">Blog</a>
-                        <a href="contacto.html">Contacto</a>
-                    </nav>
-                </div>
-                
-            </div> <!-- C.barra -->
-        </div>
-    </header>
+<?php
+    include './includes/templates/header.php';
+?>
 
     <main class="contenedor seccion">
         <div class="contenedor-anuncios">
