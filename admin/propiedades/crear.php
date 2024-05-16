@@ -5,6 +5,10 @@
     require '../../includes/config/database.php';
     $db = conectarDB();
 
+    // Consultar para obtener los vendedores
+    $consulta = "SELECT * FROM vendedores;";
+    $resultado = mysqli_query($db, $consulta);
+
     // Arreglo con mensajes de errores
     $errores = [];
 
@@ -29,7 +33,8 @@
         $habitaciones = $_POST['habitaciones'];
         $wc = $_POST['wc'];
         $estacionamiento = $_POST['estacionamiento'];
-        $vendedor = $_POST['vendedor'];
+        $vendedorId = $_POST['vendedor'];
+        $creado = date('Y/m/d');
 
         if(!$titulo) {
             $errores[] = "Debes añadir un título";
@@ -55,7 +60,7 @@
             $errores[] = "El número de lugares de estacionamiento es obligatorio";
         }
 
-        if(!$vendedor) {
+        if(!$vendedorId) {
             $errores[] = "Elige un vendedor";
         }
 
@@ -66,14 +71,16 @@
         // Revisar que el array de errores esté vacío
         if(empty($errores)) {
             // insertar en la base de datos
-            $query = " INSERT INTO propiedades (titulo, precio, descripcion, habitaciones, wc, estacionamiento, 
-            vendedores_id) VALUES ('$titulo', '$precio', '$descripcion', '$habitaciones', '$wc', '$estacionamiento', '$vendedor'); ";
+            $query = " INSERT INTO propiedades (titulo, precio, descripcion, habitaciones, wc, estacionamiento, creado, 
+            vendedores_id) VALUES ('$titulo', '$precio', '$descripcion', '$habitaciones', '$wc', '$estacionamiento', '$creado', '$vendedorId'); ";
             // echo $query;
 
             $resultado = mysqli_query($db, $query);
 
             if($resultado) {
-                echo "Insertado correctamente";
+                // Redireccionar al usuario
+
+                header('Location: /admin');
             }
         }        
     }
@@ -131,8 +138,11 @@
 
                 <select name="vendedor">
                     <option value="">-- Seleccione --</option>
-                    <option value="1">David</option>
-                    <option value="2">Andy</option>
+                    <?php while($vendedor = mysqli_fetch_assoc($resultado)): ?>
+                        <option <?php echo $vendedorId === $vendedor['id'] ? 'selected' : ''; ?> value="<?php echo $vendedor['id']; ?>">
+                        <?php echo $vendedor['nombre'] . " " . $vendedor['apellido']; ?> </option>
+                    <?php endwhile; ?>
+
                 </select>
             </fieldset>
 
