@@ -3,8 +3,16 @@
     // Nase de datos
 
     require '../../includes/config/database.php';
-
     $db = conectarDB();
+
+    if($_SERVER['REQUEST_METHOD'] === 'POST') {
+        echo "<pre>";
+        var_dump($_POST);
+        echo "</pre>";
+
+        $titulo = $_POST['titulo'];
+        $precio = $_POST['precio'];
+    }
 
     require '../../includes/funciones.php';
     incluirTemplate('header');
@@ -15,15 +23,15 @@
 
         <a href="/admin" class="boton boton-verde">Volver</a>
 
-        <form class="formulario">
+        <form class="formulario" method="POST" action="/admin/propiedades/crear.php">
             <fieldset>
                 <legend>Información General</legend>
 
                 <label for="titulo">Título</label>
-                <input type="text" id="titulo" placeholder="Título propiedad">
+                <input type="text" id="titulo" name="titulo" placeholder="Título propiedad">
 
                 <label for="precio">Precio</label>
-                <input type="number" id="precio" placeholder="Precio propiedad">
+                <input type="number" id="precio" name="precio" placeholder="Precio propiedad">
 
                 <label for="imagen">Imagen</label>
                 <input type="file" id="imagen" accept="image/jpeg, image/png">
