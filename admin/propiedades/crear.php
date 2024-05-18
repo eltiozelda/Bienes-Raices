@@ -94,20 +94,23 @@
             /** SUBIDA DE ARCHIVOS **/
 
             // Crear carpeta
-            $carpetaImagenes = '../../imagenes';
+            $carpetaImagenes = '../../imagenes/';
 
             if(!is_dir($carpetaImagenes)) {
                 mkdir($carpetaImagenes);
             }
+            
+            // Generar un nombre único
+            $nombreImagen = md5(uniqid(rand(), true)) . ".jpg";
+
+            var_dump($nombreImagen);
 
             // Subir la imagen
-            move_uploaded_file($imagen['tmp_name'], $carpetaImagenes . "/archivo.jpg" );
-
-            exit;
+            move_uploaded_file($imagen['tmp_name'], $carpetaImagenes . $nombreImagen);
 
             // insertar en la base de datos
-            $query = " INSERT INTO propiedades (titulo, precio, descripcion, habitaciones, wc, estacionamiento, creado, 
-            vendedores_id) VALUES ('$titulo', '$precio', '$descripcion', '$habitaciones', '$wc', '$estacionamiento', '$creado', '$vendedorId'); ";
+            $query = " INSERT INTO propiedades (titulo, precio, imagen, descripcion, habitaciones, wc, estacionamiento, creado, 
+            vendedores_id) VALUES ('$titulo', '$precio', '$nombreImagen', '$descripcion', '$habitaciones', '$wc', '$estacionamiento', '$creado', '$vendedorId'); ";
             // echo $query;
 
             $resultado = mysqli_query($db, $query);
