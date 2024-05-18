@@ -1,7 +1,6 @@
 <?php
 
-    // Nase de datos
-
+    // Base de datos
     require '../../includes/config/database.php';
     $db = conectarDB();
 
