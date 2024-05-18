@@ -84,7 +84,7 @@
             </div>
 
             <div class="texto-entrada">
-                <a href="entrada.html">
+                <a href="entrada.php">
                     <h4>Guía para la decoración de tu hogar</h4>
                     <p>Escrito el <span>20/10/2023</span> por: <span>Admin</span></p>
 
