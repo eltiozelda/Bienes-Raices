@@ -7,9 +7,9 @@
     // Autenticar el usuario
 
     if($_SERVER['REQUEST_METHOD'] === 'POST') {
-        echo "<pre>";
-        var_dump(($_POST));
-        echo "</pre>";
+        // echo "<pre>";
+        // var_dump(($_POST));
+        // echo "</pre>";
         
         $email = mysqli_real_escape_string($db, filter_var($_POST['email'], FILTER_VALIDATE_EMAIL));
         $password = mysqli_real_escape_string($db, $_POST['password']);
@@ -22,9 +22,20 @@
             $errores[] = "El password es obligatorio o no es válido";
         }
 
-        echo "<pre>";
-        var_dump(($errores));
-        echo "</pre>";
+        if(empty($errores)) {
+            // Revisar si el usuario existe.
+            $query = "SELECT * FROM usuarios WHERE email = '${email}'";
+            $resultado = mysqli_query($db, $query);
+
+            var_dump($resultado);
+
+            if($resultado -> num_rows) {
+                // Revisar si el password es correcto
+                
+            } else {
+                $errores[] = "El usuario no existe";
+            }
+        }
     }
 
     // Incluye el header
@@ -41,17 +52,17 @@
                 <?php echo $error; ?>
             </div>
         <?php endforeach; ?>
-        <form method="POST" class="formulario">
-            <legend>Email y Passwort</legend>
+        <form method="POST" class="formulario" novalidate>
+            <legend>Email y Password</legend>
 
             <fieldset>
                 <legend>Información Personal</legend>
 
                 <label for="email">E-mail</label>
-                <input type="email" name="email" placeholder="Tu E-mail" id="email" required>
+                <input type="email" name="email" placeholder="Tu E-mail" id="email">
 
                 <label for="password">Password</label>
-                <input type="password" name="password" placeholder="Tu password" id="password" required>
+                <input type="password" name="password" placeholder="Tu password" id="password">
             </fieldset>
 
             <input type="submit" value="Iniciar Sesión" class="boton boton-verde">
