@@ -16,15 +16,19 @@ class Propiedad {
 
     public function __construct($args = [])
     {
-        $this->titulo = $args['id'] ?? '';
+        $this->id = $args['id'] ?? '';
         $this->titulo = $args['titulo'] ?? '';
-        $this->titulo = $args['precio'] ?? '';
-        $this->titulo = $args['imagen'] ?? '';
-        $this->titulo = $args['descripcion'] ?? '';
-        $this->titulo = $args['habitaciones'] ?? '';
-        $this->titulo = $args['wc'] ?? '';
-        $this->titulo = $args['estacionamiento'] ?? '';
-        $this->titulo = $args['creado'] ?? '';
-        $this->titulo = $args['vendedores_id'] ?? '';
+        $this->precio = $args['precio'] ?? '';
+        $this->imagen = $args['imagen'] ?? '';
+        $this->descripcion = $args['descripcion'] ?? '';
+        $this->habitaciones = $args['habitaciones'] ?? '';
+        $this->wc = $args['wc'] ?? '';
+        $this->estacionamiento = $args['estacionamiento'] ?? '';
+        $this->creado = date('Y/m/d');
+        $this->vendedores_id = $args['vendedores_id'] ?? '';
+    }
+
+    public function guardar(){
+        echo "Guardar en la base de datos";
     }
 }
